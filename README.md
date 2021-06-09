@@ -17,8 +17,8 @@ Technology stack
 
 Run project
 -----------
-git clone https://github.com/Fanz0614/E-library-frontend.git <br>
-cd E-library-frontend <br>
+git clone git@github.com:Fanz0614/Progress-bar.git <br>
+cd Progress-bar <br>
 npm install <br>
 npm start <br>
 

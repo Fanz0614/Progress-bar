@@ -25,7 +25,7 @@ npm start <br>
 What I did 
 ---------
 1. Get data from the endpoint
-2. Dynamically General bars
+2. Dynamically Generate bars
 3. Controller
 4. Number limit under 0
 5. Color changed once number over limit

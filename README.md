@@ -22,12 +22,17 @@ cd Progress-bar <br>
 npm install <br>
 npm start <br>
 
-What I do 
+What I did 
 ---------
-1. Progress Bar demo v1
-2. Get data from end point
-3. Button
-4. Responsive UI
+1.Get data from the endpoint
+2.Dynamically General bars
+3.Controller
+4.Number limit under 0
+5.Color changed once number over limit
+6.Display usage amount
+7.Responsive UI
+8.Animation
+9.Version control(this is the first version)
 
 What I'm going to do
 --------------

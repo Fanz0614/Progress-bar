@@ -35,4 +35,8 @@ What I'm going to do
 2. testing(unit test)
 3. optimize application performance(React.memo)
 
+Screen shot
+-----------
+![Alt text](https://raw.githubusercontent.com/Fanz0614/pic/master/snapshot.PNG)
+
 

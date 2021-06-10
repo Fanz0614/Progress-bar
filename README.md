@@ -42,6 +42,4 @@ Screen shot
 -----------
 ![Alt text](https://raw.githubusercontent.com/Fanz0614/pic/master/snapshot.PNG)
 
-What I did 
----------
-1. Optimize application performance(React.memo)
+

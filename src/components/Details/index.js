@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ProgressBars } from './bars';
 
 export const Details = ({ buttons, bars, limits }) => {
   const [barNum, setBarNum] = useState(bars);
@@ -16,6 +17,21 @@ export const Details = ({ buttons, bars, limits }) => {
       : (newArray[selectIndex] = 0);
     setBarNum(newArray);
   };
+  const select = bars.map((value, index) => {
+    return <option key={index}>{index}</option>;
+  });
+  const button = buttonValue.map((value, index) => {
+    return (
+      <button
+        key={index}
+        class={value > 0 ? 'btn btn-success' : 'btn btn-danger'}
+        style={{ float: 'right', padding: '0 10px', margin: '0 15px' }}
+        onClick={() => buttonClick(value)}
+      >
+        {value > 0 ? '+' + value : value}
+      </button>
+    );
+  });
 
   useEffect(() => {
     setBarNum(bars);
@@ -28,44 +44,9 @@ export const Details = ({ buttons, bars, limits }) => {
       <div className="title" style={{ textAlign: 'center', fontSize: '300%' }}>
         Progress Bars Demo
       </div>
-      {barNum.map((value, index) => {
-        return (
-          <div
-            className="progress"
-            style={{
-              height: '60px',
-              margin: '20px 0',
-            }}
-            key={index}
-          >
-            <div
-              class={value > limit ? 'progress-bar  bg-danger' : 'progress-bar'}
-              role="progressbar"
-              style={{ width: `${value}%` }}
-            >
-              {value}%
-            </div>
-          </div>
-        );
-      })}
-
-      <select onChange={getIndex}>
-        {bars.map((value, index) => {
-          return <option key={index}>{index}</option>;
-        })}
-      </select>
-      {buttonValue.map((value, index) => {
-        return (
-          <button
-            key={index}
-            class={value > 0 ? 'btn btn-success' : 'btn btn-danger'}
-            style={{ float: 'right', padding: '0 10px', margin: '0 15px' }}
-            onClick={() => buttonClick(value)}
-          >
-            {value > 0 ? '+' + value : value}
-          </button>
-        );
-      })}
+      <ProgressBars barValue={barNum} limit={limit} />
+      <select onChange={getIndex}>{select}</select>
+      {button}
     </>
   );
 };

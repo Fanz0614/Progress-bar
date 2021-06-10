@@ -36,9 +36,7 @@ What I did
 
 What I'm going to do
 --------------
-1. Optimize UI(dropdown menu)
-2. testing(unit test)
-3. optimize application performance(React.memo)
+1. optimize application performance(React.memo)
 
 Screen shot
 -----------

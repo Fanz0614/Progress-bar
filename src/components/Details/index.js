@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { ProgressBars } from './bars';
+import { Bars } from './bars';
+import classNames from 'classnames'
 
 export const Details = ({ buttons, bars, limits }) => {
   const [barNum, setBarNum] = useState(bars);
@@ -12,19 +13,31 @@ export const Details = ({ buttons, bars, limits }) => {
   };
   const buttonClick = (value) => {
     const newArray = [...barNum];
-    newArray[selectIndex] + value > 0
-      ? (newArray[selectIndex] = newArray[selectIndex] + value)
+    const barValue = newArray[selectIndex];
+    barValue + value > 0
+      ? (newArray[selectIndex] = barValue + value)
       : (newArray[selectIndex] = 0);
     setBarNum(newArray);
   };
-  const select = bars.map((value, index) => {
-    return <option key={index}>{index}</option>;
+  const options = bars.map((value, index) => {
+    return (
+      <option value={index} key={index}>
+        #Progress Bar{index + 1}
+      </option>
+    );
   });
+
+  const progressBars = barNum.map((value,index) =>{
+    return(
+      <Bars limit={limit} value={value} index={index}/>
+    )
+  });
+  //button 命名
   const button = buttonValue.map((value, index) => {
     return (
       <button
         key={index}
-        class={value > 0 ? 'btn btn-success' : 'btn btn-danger'}
+        className={classNames(value > 0 ? 'btn btn-success' : 'btn btn-danger')}
         style={{ float: 'right', padding: '0 10px', margin: '0 15px' }}
         onClick={() => buttonClick(value)}
       >
@@ -44,8 +57,8 @@ export const Details = ({ buttons, bars, limits }) => {
       <div className="title" style={{ textAlign: 'center', fontSize: '300%' }}>
         Progress Bars Demo
       </div>
-      <ProgressBars barValue={barNum} limit={limit} />
-      <select onChange={getIndex}>{select}</select>
+      {progressBars}
+      <select onChange={getIndex}>{options}</select>
       {button}
     </>
   );

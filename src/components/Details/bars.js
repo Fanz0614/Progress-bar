@@ -1,30 +1,28 @@
 import React from 'react';
+import classNames from 'classnames';
 
-const Bars = ({ limit, barValue }) => {
+const Bar = ({ limit, value, index }) => {
   return (
-    <>
-      {barValue.map((value, index) => {
-        return (
-          <div
-            className="progress"
-            style={{
-              height: '60px',
-              margin: '20px 0',
-            }}
-            key={index}
-          >
-            <div
-              class={value > limit ? 'progress-bar  bg-danger' : 'progress-bar'}
-              role="progressbar"
-              style={{ width: `${value}%` }}
-            >
-              {value}%
-            </div>
-          </div>
-        );
-      })}
-    </>
+    //memo
+    <div
+      className={classNames('progress')}
+      style={{
+        height: '60px',
+        margin: '20px 0',
+      }}
+      key={index}
+    >
+      <div
+        className={classNames(
+          value > limit ? 'progress-bar  bg-danger' : 'progress-bar'
+        )}
+        role="progressbar"
+        style={{ width: `${value}%` }}
+      >
+        {value}%
+      </div>
+    </div>
   );
 };
 
-export const ProgressBars = React.memo(Bars);
+export const Bars = React.memo(Bar);

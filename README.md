@@ -32,11 +32,8 @@ What I did
 6. Display usage amount
 7. Responsive UI
 8. Animation
-9. Version control(this is the first version)
-
-What I'm going to do
---------------
-1. optimize application performance(React.memo)
+9. Optimize(React Memo)
+10. Version control(this is the first version)
 
 Screen shot
 -----------

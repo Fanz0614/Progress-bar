@@ -11,13 +11,18 @@ const initialState = {
   error: null,
 };
 
-export const getData = createAsyncThunk('data/getData', async (thunkAPI) => {
-  const { data } = await axios.get('http://pb-api.herokuapp.com/bars');
-  return data;
-});
+const url = 'http://pb-api.herokuapp.com/bars';
+
+export const getData = createAsyncThunk(
+  'barsdata/getData',
+  async (thunkAPI) => {
+    const { data } = await axios.get(url);
+    return data;
+  }
+);
 
 export const dataSlice = createSlice({
-  name: 'data',
+  name: 'barsdata',
   initialState,
   reducers: {},
   extraReducers: {

@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Bars } from './bars';
-import classNames from 'classnames'
+import classNames from 'classnames';
+import useDetails from './useDetails';
 
 export const Details = ({ buttons, bars, limits }) => {
-  const [barNum, setBarNum] = useState(bars);
-  const [limit, setLimit] = useState(limits);
-  const [buttonValue, setButtonValue] = useState(buttons);
-  const [selectIndex, setSelectindex] = useState(0);
+  const {
+    setLimit,
+    setButtonValue,
+    setSelectindex,
+    setBarNum,
+    barNum,
+    selectIndex,
+    limit,
+    buttonValue,
+    getIndex,
+    buttonClick,
+  } = useDetails({ bars, limits, buttons });
 
-  const getIndex = (e) => {
-    setSelectindex(e.target.value);
-  };
-  const buttonClick = (value) => {
-    const newArray = [...barNum];
-    const barValue = newArray[selectIndex];
-    barValue + value > 0
-      ? (newArray[selectIndex] = barValue + value)
-      : (newArray[selectIndex] = 0);
-    setBarNum(newArray);
-  };
   const options = bars.map((value, index) => {
     return (
       <option value={index} key={index}>
@@ -27,12 +25,10 @@ export const Details = ({ buttons, bars, limits }) => {
     );
   });
 
-  const progressBars = barNum.map((value,index) =>{
-    return(
-      <Bars limit={limit} value={value} index={index}/>
-    )
+  const progressBars = barNum.map((value, index) => {
+    return <Bars limit={limit} value={value} index={index} />;
   });
-  //button 命名
+
   const button = buttonValue.map((value, index) => {
     return (
       <button
@@ -46,11 +42,7 @@ export const Details = ({ buttons, bars, limits }) => {
     );
   });
 
-  useEffect(() => {
-    setBarNum(bars);
-    setLimit(limits);
-    setButtonValue(buttons);
-  }, [bars, limits, buttons]);
+  
 
   return (
     <>

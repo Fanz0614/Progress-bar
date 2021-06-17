@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Details } from '../Details/index';
 import { useSelector, useDispatch } from 'react-redux';
-import { getData } from '../../redux/slice';
+import { getData } from '../../redux/progressBarSlice';
 
 export const Home = () => {
   const { buttons, bars, limit } = useSelector((state) => state.details.data);

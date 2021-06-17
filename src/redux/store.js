@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { dataSlice } from './slice';
+import { dataSlice } from './progressBarSlice';
 
 const rootReducer = combineReducers({
   details: dataSlice.reducer,

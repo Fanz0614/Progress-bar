@@ -1,23 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Bars } from './bars';
 import classNames from 'classnames';
 import useDetails from './useDetails';
 
 export const Details = ({ buttons, bars, limits }) => {
   const {
-    setLimit,
-    setButtonValue,
-    setSelectindex,
-    setBarNum,
     barNum,
-    selectIndex,
     limit,
     buttonValue,
     getIndex,
     buttonClick,
   } = useDetails({ bars, limits, buttons });
 
-  const options = bars.map((value, index) => {
+  const options = bars.map((_, index) => {
     return (
       <option value={index} key={index}>
         #Progress Bar{index + 1}

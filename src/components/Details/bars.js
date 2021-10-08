@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-const Bar = ({ limit, value, index }) => {
+const BarsComponent = ({ limit, value, index }) => {
   return (
     //memo
     <div
@@ -25,4 +25,4 @@ const Bar = ({ limit, value, index }) => {
   );
 };
 
-export const Bars = React.memo(Bar);
+export const Bars = React.memo(BarsComponent);
